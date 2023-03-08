@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AppService } from './app.service';
+import { Service } from './app.service';
 
 import {
-  DxButtonModule,
+  DxCheckBoxModule,
+  DxFormModule,
   DxTextBoxModule,
-  DxSelectBoxModule,
 } from 'devextreme-angular';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, DxButtonModule, DxTextBoxModule, DxSelectBoxModule],
-  providers: [AppService],
+  imports: [BrowserModule, DxFormModule, DxCheckBoxModule, DxTextBoxModule],
+  providers: [Service],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

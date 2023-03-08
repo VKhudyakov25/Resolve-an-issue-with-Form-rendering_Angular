@@ -1,20 +1,34 @@
-<div class="dx-fieldset-header">SearchBox</div>
-<div class="dx-field">
-  <div class="dx-field-label">Product</div>
-  <div class="dx-field-value">
-    <dx-select-box
-      #selectBox
-      [dataSource]="productsDataSource"
-      displayExpr="Name"
-      valueExpr="id"
-      [searchEnabled]="true"
-      [searchMode]="searchModeOption"
-      [searchExpr]="searchExprOption"
-      [searchTimeout]="searchTimeoutOption"
-      [acceptCustomValue]="true"
-      (onCustomItemCreating)="addCustomItem($event)"
+<div class="long-title">
+  <h3>Personal details</h3>
+</div>
+<div id="form-container">
+  <dx-form id="form" [(formData)]="employee">
+    <!-- <dxi-item
+      #checkbox
+      name="checkbox"
+      editorType="dxCheckBox"
+      [editorOptions]="checkBoxOptions"
+    > -->
+    <dxi-item>
+      <div *dxTemplate>
+        <dx-check-box
+          [(value)]="isHomeAddressVisible"
+          (onValueChanged)="changeValue($event)"
+        ></dx-check-box>
+      </div>
+      <dxo-label text="Show Address"></dxo-label
+    ></dxi-item>
+
+    <dxi-item
+      dataField="Position"
+      editorType="dxSelectBox"
+      [editorOptions]="{ items: positions, searchEnabled: true }"
     >
-      ></dx-select-box
-    >
-  </div>
+      <dxi-validation-rule
+        type="required"
+        message="Position is required"
+      ></dxi-validation-rule>
+    </dxi-item>
+    <dxi-item dataField="Address" [visible]="isHomeAddressVisible"></dxi-item>
+  </dx-form>
 </div>
